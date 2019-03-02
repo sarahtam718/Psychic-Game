@@ -1,7 +1,11 @@
 // document ready - everything nested in here
 document.addEventListener("DOMContentLoaded", function() {
   console.log("ready");
-  // how to restart game?
+  // how to restart game? would i have to create a new function that i set off inside the onkeypress statement?
+  // function data-again(computerGuess) {
+  //   computerGuess[Math.floor(Math.random() * 27)]
+  //   console.log("computer's new guess: " + computerGuess);
+  // }
 
   // create counters
   var win = 0;
@@ -14,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var guessesLeftText = document.getElementById("guessesLeft-text");
   var userChoiceText = document.getElementById("userChoice-text");
 
-  // variable (array + push) to store computerGuess
+  // variable (array) to limit computer options to letters
   var computerGuess = [
     "a",
     "b",
@@ -44,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "z"
   ];
 
-  // computerChoice random letter - starts immediately no axn necessary - 27 because one more than 26 (arrays start at 0)
+  // computerChoice random letter - 27 because one more than 26 (arrays start at 0)
   var computerChoice = computerGuess[Math.floor(Math.random() * 27)];
   console.log("computer: " + computerChoice);
 
@@ -78,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // update guesses left to 9
         guessesNum = 9;
         console.log("we're back!");
+        // clear computer choice
+        computerChoice;
         // for the next line, had to change to 2 because otherwise would give an extra 0 guess
       } else if (computerChoice != userGuess && guessesNum >= 2) {
         // with each userGuess, decrease guesses left counter
