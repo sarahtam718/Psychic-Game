@@ -1,11 +1,6 @@
 // document ready - everything nested in here
 document.addEventListener("DOMContentLoaded", function() {
   console.log("ready");
-  // how to restart game? would i have to create a new function that i set off inside the onkeypress statement?
-  // function data-again(computerGuess) {
-  //   computerGuess[Math.floor(Math.random() * 27)]
-  //   console.log("computer's new guess: " + computerGuess);
-  // }
 
   // create counters
   var win = 0;
@@ -50,7 +45,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // computerChoice random letter - 27 because one more than 26 (arrays start at 0)
   var computerChoice = computerGuess[Math.floor(Math.random() * 27)];
-  console.log("computer: " + computerChoice);
+  // console.log("computer: " + computerChoice);
+
+  function first() {
+    console.log("computer's new guess: " + computerChoice);
+  }
+
+  first();
+
+  // how to restart game? would i have to create a new function that i set off inside the onkeypress statement? - yes, it worked!
+  function again(newChoice) {
+    computerGuess[Math.floor(Math.random() * 27)];
+    console.log("computer's new guess: " + newChoice);
+  }
 
   // variable (empty array + push) to store userGuesses
   var userChoices = [];
@@ -82,8 +89,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // update guesses left to 9
         guessesNum = 9;
         console.log("we're back!");
-        // clear computer choice
-        computerChoice;
+        // oh no! how do i clear the computer's choice??
+        function again(newChoice) {
+          computerGuess[Math.floor(Math.random() * 27)];
+        }
+        again();
+        console.log("computer's new guess: " + newChoice);
+
         // for the next line, had to change to 2 because otherwise would give an extra 0 guess
       } else if (computerChoice != userGuess && guessesNum >= 2) {
         // with each userGuess, decrease guesses left counter
@@ -99,6 +111,9 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("clear");
         // update guesses left to 9
         guessesNum = 9;
+        // how to clear??
+        computerChoice;
+        again();
       }
       // pressed a non-letter key
     } else {
